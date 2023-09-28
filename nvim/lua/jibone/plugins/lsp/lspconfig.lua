@@ -67,6 +67,11 @@ return {
 
 		-- configure typescript server with plugin
 		lspconfig["tsserver"].setup({
+			init_options = {
+				preferences = {
+					disableSuggestions = false, -- just for temp.
+				},
+			},
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
