@@ -140,5 +140,19 @@ return {
 				},
 			},
 		})
+
+		-- configure marksman
+		lspconfig["marksman"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "markdown", "markdown.mdx" },
+		})
+
+		-- configure mdx server
+		lspconfig["mdx_analyzer"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "markdown", "markdown.mdx" },
+		})
 	end,
 }
