@@ -10,7 +10,7 @@ My name is [J.Shamsul](https://jshamsul.com), and around the web I am known with
 
 I would advise against using these dotfiles directly. It is specifically tailored to my taste and I have no plans in supporting it, if you ran into some issues when using these configurations directly.
 
-Please only use this as reference. If you find any of the configurations useful, give me a shoutout over on X:@jibone
+Please only use this as reference. If you find any of the configurations useful, give me a shoutout over on X:[@jibone](https://twitter.com/jibone)
 
 ## Hardware.
 
