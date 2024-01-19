@@ -42,15 +42,15 @@ I am not sure how useful this is, but I love how the [Sketchybar](https://felixk
 
 While working on setting up my configurations, I had a lot of inspiration from these Youtubers. Their videos helped me a lot while I was tweaking and configuring my setup.
 
-Josean Martinez  
+**Josean Martinez**  
 YT: [@joseanmartinez](https://www.youtube.com/@joseanmartinez)  
-Web: (josean.com)[https://www.josean.com]
+Web: [josean.com](https://www.josean.com)
 
-Takuya Matsuyama  
+**Takuya Matsuyama**  
 YT: [@devaslife](https://www.youtube.com/@devaslife)  
 Web: [craftz.dog](https://www.craftz.dog)
 
-Christian Chiarulli  
+**Christian Chiarulli**  
 YT: [@chrisatmachine](https://www.youtube.com/@chrisatmachine)  
 Web: [chrisatmachine.com](https://www.chrisatmachine.com)
 
