@@ -6,7 +6,7 @@
 
 ## Hello Internets,
 
-My name is J.Shamsul, and around the web I am known with my handle Jibone (X:@jibone). This is my dotfiles repo.
+My name is [J.Shamsul](https://jshamsul.com), and around the web I am known with my handle Jibone (X:[@jibone](https://twitter.com/jibone)). This is my dotfiles repo.
 
 I would advise against using these dotfiles directly. It is specifically tailored to my taste and I have no plans in supporting it, if you ran into some issues when using these configurations directly.
 
