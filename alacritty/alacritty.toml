@@ -1,4 +1,7 @@
 # Color theme (Tokyo Night)
+[env]
+TERM = "screen-256color"
+
 [colors.bright]
  black = "#444b6a"
  blue = "#7da6ff"

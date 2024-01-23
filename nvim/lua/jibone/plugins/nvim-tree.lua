@@ -13,6 +13,9 @@ return {
     -- change color for arrows in tree to light blue
     vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
+    -- make background transparent
+    vim.cmd([[hi NvimTreeNormal guibg=NONE ctermbg=NONE]])
+
     -- configure nvim-tree
     nvimtree.setup({
       view = {
