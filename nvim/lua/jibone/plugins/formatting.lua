@@ -1,6 +1,6 @@
 return {
   "stevearc/conform.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  -- event = { "BufReadPre", "BufNewFile" },
   config = function()
     local conform = require("conform")
 
@@ -9,7 +9,7 @@ return {
         javascript = { "prettier" },
         typescript = { "prettier" },
         javascriptreact = { "prettier" },
-        typesctiptreact = { "prettier" },
+        typescriptreact = { "prettier" },
         svelte = { "prettier" },
         css = { "prettier" },
         html = { "prettier" },
@@ -22,6 +22,7 @@ return {
         lua = { "stylua" },
         python = { "isort", "black" },
       },
+
       format_on_save = {
         lsp_fallback = true,
         async = false,
