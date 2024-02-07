@@ -42,3 +42,6 @@ opt.iskeyword:append("-")
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- experiment
+vim.wo.cursorline = true
