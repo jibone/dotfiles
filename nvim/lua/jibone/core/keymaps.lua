@@ -45,3 +45,6 @@ keymap.set("n", "<leader><Tab>[", "tabp<CR>") -- go to previous tab
 keymap.set("n", "<leader>w", ":w<CR>")
 keymap.set("n", "<leader>q", ":q<CR>")
 keymap.set("n", "<leader>wq", ":wq<CR>")
+
+-- Noice kemaps
+keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismisss Noice message" })

@@ -4,6 +4,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path", -- source for file system paths
+    "hrsh7th/cmp-cmdline", -- source for command autocompletion
     "L3MON4D3/LuaSnip", -- snippet engine
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
@@ -16,6 +17,32 @@ return {
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
+
+    cmp.setup.cmdline("/", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = "buffer" },
+      },
+    })
+
+    cmp.setup.cmdline(":", {
+      -- TODO: figure out the key mapping later. For now tabbing is ok.
+      -- mapping = cmp.mapping.preset.cmdline(),
+      -- mapping = cmp.mapping.preset.cmdline({
+      --   ["<Down>"] = { c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },
+      --   ["<Up>"] = { c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
+      -- }),
+      sources = cmp.config.sources({
+        { name = "path" },
+      }, {
+        {
+          name = "cmdline",
+          options = {
+            ignore_cmds = { "Man", "!" },
+          },
+        },
+      }),
+    })
 
     cmp.setup({
       completion = {
@@ -41,6 +68,7 @@ return {
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
+        { name = "cmdline" },
       }),
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
@@ -50,5 +78,5 @@ return {
         }),
       },
     })
-  end
+  end,
 }
