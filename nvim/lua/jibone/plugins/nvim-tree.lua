@@ -15,6 +15,7 @@ return {
 
     -- make background transparent
     vim.cmd([[hi NvimTreeNormal guibg=NONE ctermbg=NONE]])
+    vim.cmd([[hi NvimTreeNormalNC guibg=NONE ctermbg=NONE]])
 
     -- configure nvim-tree
     nvimtree.setup({

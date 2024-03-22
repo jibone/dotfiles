@@ -26,12 +26,10 @@ return {
     })
 
     cmp.setup.cmdline(":", {
-      -- TODO: figure out the key mapping later. For now tabbing is ok.
-      -- mapping = cmp.mapping.preset.cmdline(),
-      -- mapping = cmp.mapping.preset.cmdline({
-      --   ["<Down>"] = { c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },
-      --   ["<Up>"] = { c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
-      -- }),
+      mapping = cmp.mapping.preset.cmdline({
+        ["<Down>"] = { c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }) },
+        ["<Up>"] = { c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }) },
+      }),
       sources = cmp.config.sources({
         { name = "path" },
       }, {
@@ -52,6 +50,10 @@ return {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
+      },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
       },
       mapping = cmp.mapping.preset.insert({
         ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion

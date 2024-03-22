@@ -2,7 +2,19 @@ return {
   "jackMort/ChatGPT.nvim",
   event = "VeryLazy",
   config = function()
-    require("chatgpt").setup()
+    require("chatgpt").setup({
+      openai_params = {
+        model = "gpt-4",
+      },
+    })
+
+    local keymap = vim.keymap
+
+    -- Show ChatGPT Windoe
+    keymap.set("n", "<leader>cg", "<cmd>ChatGPT<CR>", { desc = "Show ChatGPT window " })
+
+    -- Complete the code
+    keymap.set("n", "<leader>cc", "<cmd>ChatGPTCompleteCode<CR>", { desc = "ChatGPT complete code" })
   end,
   dependencies = {
     "MunifTanjim/nui.nvim",
