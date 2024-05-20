@@ -12,7 +12,7 @@ return {
   },
   config = function()
     local cmp = require("cmp")
-    -- local luasnip = require("luasnip")
+    local luasnip = require("luasnip")
     local lspkind = require("lspkind")
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
@@ -47,11 +47,11 @@ return {
       completion = {
         completeopt = "menu,menuone,preview,noselect",
       },
-      -- snippet = { -- configure how nvim-cmp interacts with snippet engine
-      --   expand = function(args)
-      --     luasnip.lsp_expand(args.body)
-      --   end,
-      -- },
+      snippet = { -- configure how nvim-cmp interacts with snippet engine
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
+      },
       window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
@@ -68,7 +68,7 @@ return {
       -- sources for autocompletion
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        -- { name = "luasnip" }, -- snippets
+        { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
         { name = "cmdline" },
