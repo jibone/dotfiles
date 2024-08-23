@@ -17,7 +17,7 @@ return {
         yaml = { "prettier" },
         markdown = { "prettier" },
         graphql = { "prettier" },
-        go = { "goimports", "gofmt" },
+        go = { "goimports", "gofmt", "gofumpt", "golines" },
         ruby = { "rubocop", "rubyfmt" },
         lua = { "stylua" },
         python = { "isort", "black" },
