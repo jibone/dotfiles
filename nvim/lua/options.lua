@@ -3,16 +3,17 @@
 local opt = vim.opt
 
 -- line numbers
-opt.relativenumber = true
 opt.number = true
+opt.relativenumber = true
 
 -- tabs & indentation
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
+opt.softtabstop = 2
 
--- line wrapping
+-- line wrap
 opt.wrap = false
 
 -- search settings
@@ -33,15 +34,12 @@ opt.backspace = "indent,eol,start"
 -- clipboard
 opt.clipboard:append("unnamedplus")
 
--- split windows
+-- split window
 opt.splitright = true
 opt.splitbelow = true
 
--- make dash '-' pard of the keyword
+-- make dash '-' part of the keyword
 opt.iskeyword:append("-")
 
 -- turn off swapfile
 opt.swapfile = false
-
--- experiment
-vim.wo.cursorline = true
