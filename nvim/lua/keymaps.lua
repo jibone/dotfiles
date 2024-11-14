@@ -30,6 +30,3 @@ keymap.set("n", "<leader><Tab>o", ":tabnew<CR>")
 keymap.set("n", "<leader><Tab>x", ":tabclose<CR>")
 keymap.set("n", "<leader>]", ":tabn<CR>")
 keymap.set("n", "<leader>[", ":tabp<CR>")
-
--- Noice
-keymap.set("n", "<leader>-", "<cmd>NoiceDismiss<CR>", {})

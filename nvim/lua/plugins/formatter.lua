@@ -1,27 +1,29 @@
 return {
-  "stevearc/conform.nvim",
+	"stevearc/conform.nvim",
 
-  config = function()
-    local conform = require("conform")
+	config = function()
+		local conform = require("conform")
 
-    conform.setup({
-      formatters_by_ft = {
-        lua = { "stylua" },
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        html = { "prettier" },
-        css = { "prettier" },
-        json = { "prettier" },
-        yaml = { "prettier" },
-        ruby = { "rubocop" },
-        eruby = { "erb_format" },
-        python = { "isort", "black" },
-        go = { "goimports", "gofmt", "gofumpt", "golines" },
-      },
-      format_on_save = {
-        lsp_fallback = true,
-        timeout_ms = 500,
-      },
-    })
-  end,
+		conform.setup({
+			formatters_by_ft = {
+				lua = { "stylua" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				html = { "prettier" },
+				css = { "prettier" },
+				json = { "prettier" },
+				yaml = { "prettier" },
+				ruby = { "rubocop" },
+				eruby = { "erb_format" },
+				python = { "isort", "black" },
+				go = { "goimports", "gofmt", "gofumpt", "golines" },
+				markdown = { "prettier", "markdownlint-cli2", "markdown-toc" },
+				["markdown.mdx"] = { "prettier", "markdownlint-cli2", "markdown-toc" },
+			},
+			format_on_save = {
+				lsp_fallback = true,
+				timeout_ms = 500,
+			},
+		})
+	end,
 }

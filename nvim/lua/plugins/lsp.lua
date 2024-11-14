@@ -86,6 +86,18 @@ return {
 				},
 			})
 
+			-- Markdown language server
+			lspconfig.marksman.setup({
+				capabilities = capabilities,
+				filetypes = { "markdown", "markdown.mdx" },
+			})
+
+			-- MDX language server
+			lspconfig.mdx_analyzer.setup({
+				capabilities = capabilities,
+				filetypes = { "markdown", "markdown.mdx" },
+			})
+
 			-- keymaps
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})

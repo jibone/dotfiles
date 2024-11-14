@@ -6,6 +6,13 @@ return {
 		"RRethy/nvim-treesitter-endwise",
 	},
 	config = function()
+		-- set mdx file type as markdown
+		vim.filetype.add({
+			extension = {
+				mdx = "mdx",
+			},
+		})
+
 		local config = require("nvim-treesitter.configs")
 
 		config.setup({
@@ -17,6 +24,6 @@ return {
 		})
 
 		vim.treesitter.language.register("markdown", "mdx")
-		vim.treesitter.language.register("yaml", "mdx")
+		vim.treesitter.language.register("yaml", "yml")
 	end,
 }
