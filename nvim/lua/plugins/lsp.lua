@@ -59,10 +59,40 @@ return {
 				capabilities = capabilities,
 			})
 
+			-- Configure Vue
+			local mason_registry = require("mason-registry")
+			local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
+				.. "/node_modules/@vue/language-server"
 			-- TypeScript language server
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
+				init_options = {
+					plugins = {
+						{
+							name = "@vue/typescript-plugin",
+							location = vue_language_server_path,
+							languages = { "vue" },
+						},
+					},
+				},
+				filetypes = {
+					"typescript",
+					"typescriptreact",
+					"typescript.tsx",
+					"javascript",
+					"javascriptreact",
+					"javascript.jsx",
+					"vue",
+				},
 			})
+
+			lspconfig.volor.setup({
+				capabilities = capabilities,
+			})
+
+			-- lspconfig.vtsls.setup({
+			-- 	capabilities = capabilities,
+			-- })
 
 			-- Ruby and possibilly Ruby on Rails
 			lspconfig.ruby_lsp.setup({
@@ -105,6 +135,9 @@ return {
 			vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
+			vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, {})
+			vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, {})
+			vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, {})
 		end,
 	},
 }

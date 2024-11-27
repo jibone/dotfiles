@@ -19,6 +19,7 @@ return {
 				go = { "goimports", "gofmt", "gofumpt", "golines" },
 				markdown = { "prettier", "markdownlint-cli2", "markdown-toc" },
 				["markdown.mdx"] = { "prettier", "markdownlint-cli2", "markdown-toc" },
+				vue = { "prettier" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
