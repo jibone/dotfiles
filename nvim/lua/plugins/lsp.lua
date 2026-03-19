@@ -1,10 +1,12 @@
 return {
 	{
 		"williamboman/mason.nvim",
-
-		config = function()
-			require("mason").setup()
-		end,
+		lazy = false,
+		opts = {
+			ui = {
+				border = "rounded",
+			},
+		},
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
@@ -15,12 +17,12 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-
+		lazy = false,
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+		},
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-			local lspconfig = require("lspconfig")
-			local util = require("lspconfig/util")
 
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 				border = "rounded",
@@ -34,47 +36,34 @@ return {
 				float = { border = "rounded" },
 			})
 
-			local lspconfig_ui_window = require("lspconfig.ui.windows")
-			lspconfig_ui_window.default_options = {
-				border = "rounded",
+			vim.lsp.enable("lua_ls")
+			vim.lsp.enable("html")
+			vim.lsp.enable("cssls")
+			vim.lsp.enable("tailwindcss")
+			vim.lsp.enable("ts_ls")
+			vim.lsp.enable("ruby_lsp")
+			vim.lsp.enable("gopls")
+			vim.lsp.enable("marksman")
+			vim.lsp.enable("mdx_analyzer")
+
+			vim.lsp.config.lua_ls = {
+				capabilities = capabilities,
 			}
 
-			-- Lua language server
-			lspconfig.lua_ls.setup({
+			vim.lsp.config.html = {
 				capabilities = capabilities,
-			})
+			}
 
-			-- HTML language server
-			lspconfig.html.setup({
+			vim.lsp.config.cssls = {
 				capabilities = capabilities,
-			})
+			}
 
-			-- CSS language server
-			lspconfig.cssls.setup({
+			vim.lsp.config.tailwindcss = {
 				capabilities = capabilities,
-			})
+			}
 
-			-- TailwindCSS language server
-			lspconfig.tailwindcss.setup({
+			vim.lsp.config.ts_ls = {
 				capabilities = capabilities,
-			})
-
-			-- Configure Vue
-			local mason_registry = require("mason-registry")
-			local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-				.. "/node_modules/@vue/language-server"
-			-- TypeScript language server
-			lspconfig.ts_ls.setup({
-				capabilities = capabilities,
-				init_options = {
-					plugins = {
-						{
-							name = "@vue/typescript-plugin",
-							location = vue_language_server_path,
-							languages = { "vue" },
-						},
-					},
-				},
 				filetypes = {
 					"typescript",
 					"typescriptreact",
@@ -84,27 +73,17 @@ return {
 					"javascript.jsx",
 					"vue",
 				},
-			})
+				root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
+			}
 
-			lspconfig.volor.setup({
+			vim.lsp.config.ruby_lsp = {
 				capabilities = capabilities,
-			})
+			}
 
-			-- lspconfig.vtsls.setup({
-			-- 	capabilities = capabilities,
-			-- })
-
-			-- Ruby and possibilly Ruby on Rails
-			lspconfig.ruby_lsp.setup({
+			vim.lsp.config.gopls = {
 				capabilities = capabilities,
-			})
-
-			-- Go language server
-			lspconfig.gopls.setup({
-				capabilities = capabilities,
-				cmd = { "gopls" },
 				filetypes = { "go", "gomod", "gowork", "gotmpl" },
-				root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+				root_markers = { "go.work", "go.mod", ".git" },
 				settings = {
 					gopls = {
 						completeUnimported = true,
@@ -114,30 +93,39 @@ return {
 						},
 					},
 				},
-			})
+			}
 
-			-- Markdown language server
-			lspconfig.marksman.setup({
+			vim.lsp.config.marksman = {
 				capabilities = capabilities,
 				filetypes = { "markdown", "markdown.mdx" },
-			})
+			}
 
-			-- MDX language server
-			lspconfig.mdx_analyzer.setup({
+			vim.lsp.config.mdx_analyzer = {
 				capabilities = capabilities,
 				filetypes = { "markdown", "markdown.mdx" },
-			})
+			}
 
-			-- keymaps
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-			vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
-			vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, {})
-			vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, {})
-			vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, {})
+			vim.api.nvim_create_autocmd("LspAttach", {
+				callback = function(args)
+					local client = vim.lsp.get_client_by_id(args.data.client_id)
+					if not client then
+						return
+					end
+
+					local bufnr = args.buf
+					local opts = { buffer = bufnr }
+
+					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+					vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
+					vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
+					vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, opts)
+					vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+					vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+					vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, opts)
+					vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, opts)
+				end,
+			})
 		end,
 	},
 }
