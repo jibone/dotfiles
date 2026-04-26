@@ -30,3 +30,14 @@ keymap.set("n", "<leader><Tab>o", ":tabnew<CR>")
 keymap.set("n", "<leader><Tab>x", ":tabclose<CR>")
 keymap.set("n", "<leader>]", ":tabn<CR>")
 keymap.set("n", "<leader>[", ":tabp<CR>")
+
+-- spellcheck toggle
+keymap.set("n", "<leader>sp", function()
+	if vim.opt.spell:get() then
+		vim.opt.spell = false
+		print("Spellcheck disabled")
+	else
+		vim.opt.spell = true
+		print("Spellcheck enabled")
+	end
+end, { desc = "Toggle spellcheck" })
