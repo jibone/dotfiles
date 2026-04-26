@@ -102,7 +102,7 @@ return {
 
 			vim.lsp.config.mdx_analyzer = {
 				capabilities = capabilities,
-				filetypes = { "markdown", "markdown.mdx" },
+				filetypes = { "mdx" },
 			}
 
 			vim.api.nvim_create_autocmd("LspAttach", {
