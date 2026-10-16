@@ -8,6 +8,8 @@ This repository contains J.Shamsul's personal dotfiles, specifically tailored fo
 .
 ├── alacritty/      # Alacritty terminal config (TOML)
 ├── ghostty/        # Ghostty terminal config
+├── herdr/          # Herdr workspace manager config (config.toml)
+├── herdr-nvim/     # herdr-nvim plugin config (herdr side)
 ├── kitty/          # Kitty terminal config
 ├── nvim/           # NeoVim configuration (Lua)
 ├── skhd/           # Simple Hotkey Daemon (window management hotkeys)
@@ -216,6 +218,7 @@ plugins/          # Item scripts
 - Neovim config checks for `vim.g.vscode` to disable plugins in VSCode
 - Tmux prefix is remapped to `Ctrl-s`
 - Window management is handled by yabai + skhd (bsp layout)
+- Herdr's `config.toml` is symlinked at file level (its config dir also holds runtime state like sockets and logs), while `herdr-nvim/` is symlinked as a whole directory
 - Color scheme: Tokyo Night / Catppuccin Mocha / Purple scheme
 
 ## Version Info

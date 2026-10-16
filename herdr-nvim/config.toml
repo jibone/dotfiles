@@ -1,0 +1,25 @@
+# herdr-nvim (herdr side) config.
+# Path: ~/.config/herdr-nvim/config.toml
+# Missing or malformed files fall back to these same defaults.
+
+[sidebar]
+# Binary used to spawn the per-tab nvim daemon.
+# nvim_bin = "nvim"
+
+# Env overrides for that nvim, applied to the daemon, the sidebar window, and
+# open-file clients. Example: ["NVIM_APPNAME=myapp"] runs the sidebar under the
+# config in ~/.config/myapp instead of vanilla nvim.
+# nvim_env = []
+
+# Sidebar placement: right (default), left, top, or bottom.
+# position = "right"
+
+[picker]
+# Pane lines scanned by the fallback text-scrape.
+# scan_lines = 300
+
+# Session entries shown before you type a query.
+# max_files = 20
+
+# Let fff reuse ~/.cache/nvim/fff_nvim (read-only copy).
+# frecency = true
