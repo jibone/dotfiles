@@ -38,6 +38,9 @@ Together with Yabai I use [Skhd](https://github.com/koekeishiya/yabai) to config
 **Sketchybar**  
 I am not sure how useful this is, but I love how the [Sketchybar](https://felixkratz.github.io/SketchyBar/) looks. The configuration for sketchybar can be found here: [sketchybar/](https://github.com/jibone/dotfiles/tree/master/sketchybar)
 
+**Herdr**  
+I use [Herdr](https://herdr.dev) as my terminal workspace manager for AI coding agents, with the [herdr-nvim](https://github.com/ChmaraX/herdr-nvim) sidebar plugin. Its config lives here: [herdr/config.toml](https://github.com/jibone/dotfiles/blob/master/herdr/config.toml) (and the plugin side at [herdr-nvim/config.toml](https://github.com/jibone/dotfiles/blob/master/herdr-nvim/config.toml))
+
 ## Resource.
 
 While working on setting up my configurations, I had a lot of inspiration from these Youtubers. Their videos helped me a lot while I was tweaking and configuring my setup.

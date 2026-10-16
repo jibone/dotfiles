@@ -1,0 +1,19 @@
+onboarding = false
+
+[keys]
+# Freed so the herdr-nvim plugin actions below own these keys.
+edit_scrollback = ""
+open_notification_target = ""
+
+# herdr-nvim sidebar + file picker (plugin id: chmarax.herdr-nvim)
+[[keys.command]]
+key = "prefix+e"
+type = "plugin_action"
+command = "chmarax.herdr-nvim.toggle"
+description = "nvim sidebar"
+
+[[keys.command]]
+key = "prefix+o"
+type = "plugin_action"
+command = "chmarax.herdr-nvim.pick-file"
+description = "open file from agent output"
